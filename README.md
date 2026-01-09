@@ -1,5 +1,7 @@
 ## Electron App Template 
 
+**IMPORTANT:** Click & open README.md for full instruction. The preview gets cut off. 
+
 A simple ElectronJS starter template for building desktop applications using HTML, CSS, and JavaScript.
 
 This repo is part of my YouTube tutorial on setting up your very first Electron desktop app. It’s designed to be simple, beginner-friendly, and easy to customize for any project.
