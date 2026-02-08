@@ -2,7 +2,30 @@
   "name": "electron-app",
   "version": "1.0.0",
   "main": "main.js",
+  "dependencies": {
+    "express": "^4.22.1",
+    "socket.io": "^4.8.3"
+  },
   "scripts": {
-    "start": "electron ."
+    "start-server": "node index.js",
+    "start-electron": "electron .",
+    "start": "concurrently \"npm run start-server\" \"npm run start-electron\""
+  },
+  "description": "**IMPORTANT:** Click & open README.md for full instruction. The preview gets cut off.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nasha-wanich/electron-app-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nasha-wanich/electron-app-template/issues"
+  },
+  "homepage": "https://github.com/nasha-wanich/electron-app-template#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "electron": "^40.2.1"
   }
 }
