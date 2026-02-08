@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.header {
+  background-color: #9A2280;
+  padding: 10px; 
+  text-align: center;
+}
+
+.app {
+  padding: 16px;
+}
+h1 {
+  text-align: center;
+  color: #FF90B3;
+  font-family:verdana;
+}
+.name {
+  background-color: #861657;
+  border: none;
+  color: #FFC2E2;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+div{
+  padding:10px
+}
+
+input,
+textarea,
+select {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+}

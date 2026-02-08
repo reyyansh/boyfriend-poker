@@ -1,22 +1,12 @@
 <!DOCTYPE html> 
 <head> 
-    <title>input name</title>
+    <title>boyfriend poker!</title>
+    <link rel="stylesheet" href="./styles.css"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
-    <div class="wrapper">
-        <form id="form" action="">
-            <input id="user-name" autocomplete="off"/><button>enter</button>
-        </form>
-    <script>
-      const form = document.getElementById('form');
-      const name = document.getElementById('user-name');
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (name.value) {
-          window.location.href = `index.html?user-name=${encodeURIComponent(name.value)}`;
-        }
-      });
-    </script>
-
-    </div>
-  </body>
+  <div class = "loginScreen",  style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: rgb(255, 233, 243); gap:10px">
+    <h1>choose your name!</h1>
+    <div class="buttonWrapper" style = "display: flex; flex-direction: row; gap:10px">
+        <button class="name" type="button" id="aditya">Aditya</button>
+        <button class="n

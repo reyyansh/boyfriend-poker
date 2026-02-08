@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <title>app name</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./public/styles.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Socket.IO chat</title>
     <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+      body { margin: 0; padding-bottom: 3rem; background: #FFC2E2; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
       #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
       #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
       #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #092342; }
 
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages > li { padding: 0.5rem 1rem; }
@@ -29,8 +29,10 @@ if(typeof(name) !== 'undefined' && name !== null){
 -->
 
   <body>
+    <div class="header">
+      <p style="color:#fff">happy valentines day! i love you forever</p>
+    </div>
     <ul id="messages"></ul>
-    <ul id="pokes"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
@@ -58,36 +60,42 @@ if(typeof(name) !== 'undefined' && name !== null){
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
-    </script>
-      <div class="app">
-      <p>Here is your boyfriend. You should poke him.</p>
-      <img id="poke" src="./condor.JPEG" alt="this is a condor i'm using to test", width="50%">
-      <p>this is actually a condor</p>
-      <!--<h1>hello, <span id="user-name"></span></h1>-->
-      <script>
-        document.getElementById('poke').addEventListener('click', () => {
-          const item = document.createElement('li');
-          item.textContent = `you sent a poke!`;
-          messages.appendChild(item);
-          socket.emit('poke', username);
-        });
 
-      socket.on('poke_recieved', (username) => {
-          const item = document.createElement('li');
-          item.textContent = `you got poked by ${username}!`;
-          messages.appendChild(item);
-          window.scrollTo(0, document.body.scrollHeight);
-        });
-        const images = ["aditya.jpg", "reyansh.jpg", "condor.jpg"];
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get('user-name');
-        const hello = document.getElementById("hello")
-        document.getElementById('user-name').textContent = username;
+      </script>
+        <div class="app">
+        <p>Here is your boyfriend. You should poke him.</p>
+        <img id="poke" src="./r1.JPEG" alt="this is a condor i'm using to test", width="50%">
+        <script>
+          document.getElementById('poke').addEventListener('click', () => {
+            const item = document.createElement('li');
+            item.textContent = `you sent a poke!`;
+            messages.appendChild(item);
+            socket.emit('poke', username);
+            window.scrollTo(0, document.body.scrollHeight);
+          });
 
-        if (!username) {
-          window.location.href = 'login.html';
-        }
-    </script>
+        socket.on('poke_recieved', (username) => {
+            const item = document.createElement('li');
+            item.textContent = `you got poked by ${username}!`;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+          });
+
+          const reyansh_images = ["r1.jpeg"];
+          const ditu_images = ["a1.jpg", "a2.jpg", "a3.jpg", "a4.jpg", "a5.jpg"];
+          const urlParams = new URLSearchParams(window.location.search);
+          const username = urlParams.get('user-name');
+          if (username === 'aditya') {
+            document.getElementById('poke').src = reyansh_images[Math.floor(Math.random() * reyansh_images.length)];
+          } else {
+            document.getElementById('poke').src = ditu_images[Math.floor(Math.random() * ditu_images.length)];
+          }
+          document.getElementById('user-name').textContent = username;
+
+          if (!username) {
+            window.location.href = 'login.html';
+          }
+      </script>
     </div>
   </body>
 </html>

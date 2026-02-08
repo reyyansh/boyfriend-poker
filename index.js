@@ -30,11 +30,4 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg, username);
   });
   socket.on('poke', (username) => {
-    console.log('poke received');
-    socket.broadcast.emit('poke_recieved', username);
-  });
-});
-
-server.listen(3000, () => {
-  console.log('server running at http://localhost:3000');
-});
+    console.log('poke re
