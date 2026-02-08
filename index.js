@@ -31,3 +31,7 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('poke_recieved', username);
   });
 });
+
+server.listen(3000, () => {
+  console.log('server running at http://localhost:3000');
+});

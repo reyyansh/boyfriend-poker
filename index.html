@@ -32,7 +32,7 @@ if(typeof(name) !== 'undefined' && name !== null){
     <div class="app">
       <p>Here is your boyfriend. You should poke him.</p>
       <img id="poke" src="./condor.JPG" alt="this is a condor i'm using to test", width="50%">
-      <p>this is actually a condor because i'm testing things out</p>
+      <p>this is actually a condor</p>
       <!--<h1>hello, <span id="user-name"></span></h1>-->
       <script>
         const images = ["aditya.jpg", "reyansh.jpg", "condor.jpg"];
@@ -76,4 +76,21 @@ if(typeof(name) !== 'undefined' && name !== null){
         window.scrollTo(0, document.body.scrollHeight);
       });
 
-      d
+      document.getElementById('poke').addEventListener('click', () => {
+        const item = document.createElement('li');
+        item.textContent = `you sent a poke!`;
+        pokes.appendChild(item);
+        socket.emit('poke', username);
+      });
+
+      socket.on('poke_recieved', (username) => {
+        const item = document.createElement('li');
+        item.textContent = `you got poked by ${username}!`;
+        pokes.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+
+    </script>
+  </body>
+</html>
+
