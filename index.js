@@ -17,6 +17,9 @@ app.get('/index.html', (req, res) => {
    })
 })
 
+express.static("./", [])
+app.use(express.static(join(__dirname, 'public')));
+
 app.get("/:universalURL", (req, res) => {
    res.send("404 URL NOT FOUND");
 });
