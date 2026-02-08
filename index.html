@@ -20,23 +20,36 @@
     </style>
   </head>
 
+<!--
+const greeting = document.getElementById("greeting")
+
+if(typeof(name) !== 'undefined' && name !== null){
+  greeting.innerHTML = `Thank you ${name}`
+  greeting.style.visibility = "visible"
+}
+-->
+
   <body>
     <div class="app">
       <p>Boyfriend Poker</p>
       <button id="poke">Click to Poke</button>
+      <h1>hello, <span id="user-name"></span></h1>
       <script>
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get('user-name');
-        document.getElementById('username').textContent = username;
+        const hello = document.getElementById("hello")
         console.log(username);
-      </script>
-      <p></p>
-      <h1>The value for number is: <span id="user-name"></span></h1>
+        document.getElementById('user-name').textContent = username;
+
+        if (!username) {
+          window.location.href = 'login.html';
+        }
+    </script>
     </div>
     <ul id="messages"></ul>
     <ul id="pokes"></ul>
     <form id="form" action="">
-      <input id="name" autocomplete="off"/><button>log in</button>
+      <input id="Uname" autocomplete="off"/><button>log in</button>
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
     <script src="script.js"></script>
@@ -48,15 +61,7 @@
       const input = document.getElementById('input');
       const messages = document.getElementById('messages');
       const pokes = document.getElementById('pokes');
-      const name = document.getElementById('name');
-
-      form.addEventListener('name', (e) => {
-        e.preventDefault();
-        if (input.value) {
-          name.value = input.value;
-          input.value = '';
-        }
-      });
+      const Uname = document.getElementById('Uname');
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
