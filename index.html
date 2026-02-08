@@ -76,21 +76,4 @@ if(typeof(name) !== 'undefined' && name !== null){
         window.scrollTo(0, document.body.scrollHeight);
       });
 
-      document.getElementById('poke').addEventListener('click', () => {
-        const item = document.createElement('li');
-        item.textContent = `you sent a poke!`;
-        pokes.appendChild(item);
-        socket.emit('poke', username);
-      });
-
-      socket.on('poke_recieved', (username) => {
-        const item = document.createElement('li');
-        item.textContent = `you got poked by ${username}!`;
-        pokes.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-
-    </script>
-  </body>
-</html>
-
+      d
