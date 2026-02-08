@@ -159,4 +159,4 @@ This will launch a simple Electron desktop window.
 
 ## Want a Beginner Walkthrough Project?
 
-If you want a step-by-step desktop app beginner tutorial, check out this repo where we build a calendar widget together: https://github.com/nasha-
+If you want a step-by-step desktop app beginner tutorial, check out this repo where we build a calendar widget together: https://github.com/nasha-wanich/little-calendar
