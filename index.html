@@ -24,6 +24,14 @@
     <div class="app">
       <p>Boyfriend Poker</p>
       <button id="poke">Click to Poke</button>
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('user-name');
+        document.getElementById('username').textContent = username;
+        console.log(username);
+      </script>
+      <p></p>
+      <h1>The value for number is: <span id="user-name"></span></h1>
     </div>
     <ul id="messages"></ul>
     <ul id="pokes"></ul>

@@ -1,0 +1,22 @@
+<!DOCTYPE html> 
+<head> 
+    <title>input name</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="form" action="">
+            <input id="user-name" autocomplete="off"/><button>enter</button>
+        </form>
+    <script>
+      const form = document.getElementById('form');
+      const name = document.getElementById('user-name');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (name.value) {
+          window.location.href = `index.html?user-name=${encodeURIComponent(name.value)}`;
+        }
+      });
+    </script>
+
+    </div>
+  </body>
