@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
     //console.log('user disconnected');
   //});
   socket.on('chat message', (msg) => {
-    io.emit('chat message', "DEBUG: hey");
+    io.emit('chat message', msg);
   });
   socket.on('poke', () => {
     console.log('poke received');
