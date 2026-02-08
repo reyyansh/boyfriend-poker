@@ -9,4 +9,22 @@
     <h1>choose your name!</h1>
     <div class="buttonWrapper" style = "display: flex; flex-direction: row; gap:10px">
         <button class="name" type="button" id="aditya">Aditya</button>
-        <button class="n
+        <button class="name" type="button" id="reyansh">Reyansh</button>
+    </div>
+  </div>
+    <script>
+      const ditu_button = document.getElementById('aditya');
+      const rey_button = document.getElementById('reyansh');
+
+      ditu_button.addEventListener('click', () => {
+        console.log('aditya selected');
+        window.location.href = 'index.html?user-name=aditya';
+      });
+
+      rey_button.addEventListener('click', () => {
+        console.log('reyansh selected');
+        window.location.href = 'index.html?user-name=reyansh';
+      });
+
+    </script>
+  </body>
