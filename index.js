@@ -11,14 +11,24 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'login.html'));
 });
 
+app.get('/index.html', (req, res) => {
+   res.sendFile('index.html', {
+     root: './'
+   })
+})
+
+app.get("/:universalURL", (req, res) => {
+   res.send("404 URL NOT FOUND");
+});
 
 io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+
+  socket.on('chat message', (msg, username) => {
+    io.emit('chat message', msg, username);
   });
-  socket.on('poke', () => {
+  socket.on('poke', (username) => {
     console.log('poke received');
-    socket.broadcast.emit('poke_recieved');
+    socket.broadcast.emit('poke_recieved', username);
   });
 });
 
