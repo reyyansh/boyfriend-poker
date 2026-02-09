@@ -3,34 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <title>app name</title>
-    <link rel="stylesheet" href="./public/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Socket.IO chat</title>
+    <title>boyfriend poker</title>
+    <link rel="icon" type="image/x-icon" href="./icon.PNG">
     <style>
       body { margin: 0; padding-bottom: 3rem; background: #FFC2E2; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
       #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
       #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
       #input:focus { outline: none; }
-      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #092342; }
-
+      #form > button { background: #FF90B3; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #092342; }
+      #p {color:#092342}
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages > li { padding: 0.5rem 1rem; }
     </style>
   </head>
 
-<!--
-const greeting = document.getElementById("greeting")
-
-if(typeof(name) !== 'undefined' && name !== null){
-  greeting.innerHTML = `Thank you ${name}`
-  greeting.style.visibility = "visible"
-}
--->
-
   <body>
     <div class="header">
-      <p style="color:#fff">happy valentines day! i love you forever</p>
+      <p style="color:#FFC2E2">happy valentines day! i love you forever</p>
     </div>
     <ul id="messages"></ul>
     <form id="form" action="">
@@ -44,7 +36,6 @@ if(typeof(name) !== 'undefined' && name !== null){
       const form = document.getElementById('form');
       const input = document.getElementById('input');
       const messages = document.getElementById('messages');
-      const pokes = document.getElementById('pokes');
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -57,6 +48,7 @@ if(typeof(name) !== 'undefined' && name !== null){
       socket.on('chat message', (msg, username) => {
         const item = document.createElement('li');
         item.textContent = `${username}: ${msg}`;
+        item.style.color = "#092342";
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
@@ -64,37 +56,42 @@ if(typeof(name) !== 'undefined' && name !== null){
       </script>
         <div class="app">
         <p>Here is your boyfriend. You should poke him.</p>
-        <img id="poke" src="./r1.JPEG" alt="this is a condor i'm using to test", width="50%">
+        <img id="poke" src="./r1.jpg" alt="test img" height="500vw" style="margin: auto;">
         <script>
           document.getElementById('poke').addEventListener('click', () => {
             const item = document.createElement('li');
             item.textContent = `you sent a poke!`;
+            item.style.color = "#EF7A85";
             messages.appendChild(item);
             socket.emit('poke', username);
+            refreshPokeImage(username);
             window.scrollTo(0, document.body.scrollHeight);
           });
 
         socket.on('poke_recieved', (username) => {
             const item = document.createElement('li');
             item.textContent = `you got poked by ${username}!`;
+            item.style.color = "#861657";
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
           });
 
-          const reyansh_images = ["r1.jpeg"];
-          const ditu_images = ["a1.jpg", "a2.jpg", "a3.jpg", "a4.jpg", "a5.jpg"];
+          const reyansh_images = ["r1.jpg", "r2.JPG", "r3.PNG", "r4.png"];
+          const ditu_images = ["a1.JPG", "a2.PNG", "a3.JPG", "a4.JPG", "a5.JPG", "a6.JPG"];
           const urlParams = new URLSearchParams(window.location.search);
           const username = urlParams.get('user-name');
-          if (username === 'aditya') {
-            document.getElementById('poke').src = reyansh_images[Math.floor(Math.random() * reyansh_images.length)];
+          refreshPokeImage(username);
+          function refreshPokeImage(username) {          
+            if (username === 'aditya') {
+            document.getElementById('poke').src = `./${reyansh_images[Math.floor(Math.random() * reyansh_images.length)]}`;
           } else {
-            document.getElementById('poke').src = ditu_images[Math.floor(Math.random() * ditu_images.length)];
+            document.getElementById('poke').src = `./${ditu_images[Math.floor(Math.random() * ditu_images.length)]}`;
           }
           document.getElementById('user-name').textContent = username;
 
           if (!username) {
             window.location.href = 'login.html';
-          }
+          }}
       </script>
     </div>
   </body>

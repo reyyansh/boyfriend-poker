@@ -1,0 +1,7 @@
+      <!-- #messages > li:nth-child(odd) { background: #efefef; } -->
+
+app.get('/index.html', (req, res) => {
+   res.sendFile('index.html', {
+     root: './'
+   })
+})

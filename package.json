@@ -20,10 +20,6 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/nasha-wanich/electron-app-template/issues"
-  },
-  "homepage": "https://github.com/nasha-wanich/electron-app-template#readme",
   "devDependencies": {
     "concurrently": "^9.2.1",
     "electron": "^40.2.1"
